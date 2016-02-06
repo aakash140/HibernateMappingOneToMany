@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+ <class name="com.hibernate.mappingset.Employee" table="EMPLOYEE_MAPPING">
+ <id name="emp_id">
+ <generator class="increment">
+ </generator>
+ </id>
+ <set name="contact" cascade="all">
+ 	<key column="emp_id"/>
+  		<one-to-many class="com.hibernate.mappingset.ContactDetails"/>
+  </set>
+  <property name="firstName"></property>
+  <property name="lastName"></property>
+  </class>
+   
+  <class name="com.hibernate.mappingset.ContactDetails" table="CONTACT_DETAILS">
+  <id name="contact_id">
+  <generator class="increment">
+ </generator>
+ 	</id>
+ 	<property name="phoneNumber"></property>
+ 	<property name="type"></property>
+  </class>
+ </hibernate-mapping>
